@@ -32,62 +32,69 @@ class _LoginPageState extends State<LoginPage> {
                 padding: const EdgeInsets.only(left: 50.0, bottom: 20.0),
                 child: Image.asset('assets/images/logo.png'),
               ),
-              TextField(
-                onChanged: (text) {
-                  email = text;
-                },
-                keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(
-                  //border: OutlineInputBorder(),
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.white
-                    )
-                  ),
-                  labelText: "Email",
-                  labelStyle: TextStyle(color: Colors.white)
-                ),
-              ),
-              SizedBox(
-                height: 10,
-                width: 10,
-              ),
-              TextField(
-                onChanged: (text) {
-                  password = text;
-                },
-                obscureText: true,
-                decoration: InputDecoration(
-                  //border: OutlineInputBorder(),
-                  enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                          color: Colors.white
-                      )
-                  ),
-                  labelText: "Password",
-                    labelStyle: TextStyle(color: Colors.white),
-                ),
-              ),
-              SizedBox(height: 10),
-              ElevatedButton(
-                onPressed: () {
-                  if (email == 'rafa' && password == '1234') {
-                    //rotas nomeadas
-                    Navigator.of(context).pushReplacementNamed(
-                        '/home'); //somente com o pushNamed ele navega pra pagina mas a pagina de login continua visivel
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Column(
+                    children: [
+                      TextField(
+                        onChanged: (text) {
+                          email = text;
+                        },
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: InputDecoration(
+                          //border: OutlineInputBorder(),
+                          enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                  // color: Colors.white
+                                  )),
+                          labelText: "Email",
+                          //labelStyle: TextStyle(color: Colors.white)
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                        width: 10,
+                      ),
+                      TextField(
+                        onChanged: (text) {
+                          password = text;
+                        },
+                        obscureText: true,
+                        decoration: InputDecoration(
+                          //border: OutlineInputBorder(),
+                          enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                  //color: Colors.white
+                                  )),
+                          labelText: "Password",
+                          //labelStyle: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      ElevatedButton(
+                        onPressed: () {
+                          if (email == 'rafa' && password == '1234') {
+                            //rotas nomeadas
+                            Navigator.of(context).pushReplacementNamed(
+                                '/home'); //somente com o pushNamed ele navega pra pagina mas a pagina de login continua visivel
 
-                    /*Navigator.of(context).pushReplacement(
+                            /*Navigator.of(context).pushReplacement(
                           //somente com o push ele navega pra pagina mas a pagina de login continua visivel
                           MaterialPageRoute(builder: (context) => HomePage())); //rotas manuais*/
-                  }
-                },
-                child: Text("Login"),
+                          }
+                        },
+                        child: Text("Login"),
+                      ),
+                      ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).pushNamed('/forgotPassword');
+                          },
+                          child: Text("Forgot my Password"))
+                    ],
+                  ),
+                ),
               ),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('/forgotPassword');
-                  },
-                  child: Text("Esqueci minha senha"))
             ],
           ),
         ),
@@ -106,7 +113,9 @@ class _LoginPageState extends State<LoginPage> {
             child: Image.asset(
               'assets/images/background.jpg',
               fit: BoxFit.cover,
-            )
+            )),
+        Container(
+          color: Colors.black.withOpacity(0.3),
         ),
         _body(),
       ],
