@@ -20,8 +20,10 @@ class _HomePageState extends State<HomePage> {
       drawer: Drawer(
         child: Column(
           children: [
-            UserAccountsDrawerHeader( //para adicionar uma foto no menu
-                currentAccountPicture: ClipOval( //usado para deixar a imagem redonda
+            UserAccountsDrawerHeader(
+                //para adicionar uma foto no menu
+                currentAccountPicture: ClipOval(
+                  //usado para deixar a imagem redonda
                   child: Image.asset('assets/images/eu.jpeg'),
                 ),
                 accountName: Text("rafa"),
@@ -31,7 +33,7 @@ class _HomePageState extends State<HomePage> {
               subtitle: Text("Home Screen"),
               leading: Icon(Icons.home),
               onTap: () {
-                print('home');
+                Navigator.of(context).pushReplacementNamed('/home');
               },
             ),
             ListTile(
