@@ -17,6 +17,34 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: Column(
+          children: [
+            UserAccountsDrawerHeader( //para adicionar uma foto no menu
+                currentAccountPicture: ClipOval( //usado para deixar a imagem redonda
+                  child: Image.asset('assets/images/eu.jpeg'),
+                ),
+                accountName: Text("rafa"),
+                accountEmail: Text("rafacorreavieira2020@gmail.com")),
+            ListTile(
+              title: Text("Home"),
+              subtitle: Text("Home Screen"),
+              leading: Icon(Icons.home),
+              onTap: () {
+                print('home');
+              },
+            ),
+            ListTile(
+              title: Text("Logout"),
+              subtitle: Text("Exit the app"),
+              leading: Icon(Icons.exit_to_app),
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed('/');
+              },
+            )
+          ],
+        ),
+      ),
       appBar: AppBar(
         title: Text("Teste"),
         actions: [CustomSwitcher()],
@@ -24,7 +52,8 @@ class _HomePageState extends State<HomePage> {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        child: Column(  // ListView usado para poder rolar a tela para baixo
+        child: Column(
+          // ListView usado para poder rolar a tela para baixo
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text("Contador $counter"),
